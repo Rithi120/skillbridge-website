@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>SkillBridge — Future Classes</title>
+    <meta name="description" content="SkillBridge — upcoming classes expanding beyond chess." />
+    <style>
+        /* same CSS as chess.html (copy/paste) */
+        :root {
+            --bg: #0f1724;
+            --card: #0b1220;
+            --muted: #9aa4b2;
+            --accent1: #5eead4;
+            --accent2: #60a5fa;
+            --glass: rgba(255, 255, 255, 0.04);
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        body {
+            margin: 0;
+            background: linear-gradient(180deg, var(--bg), #061029 120%);
+            color: #e6eef6;
+            -webkit-font-smoothing: antialiased
+        }
+
+        header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 28px;
+            backdrop-filter: blur(6px)
+        }
+
+        .brand {
+            display: flex;
+            gap: 14px;
+            align-items: center
+        }
+
+        .logo {
+            width: 56px;
+            height: 56px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 12px;
+            background: linear-gradient(135deg, var(--accent2), var(--accent1));
+            box-shadow: 0 6px 20px rgba(96, 165, 250, 0.08)
+        }
+
+        nav a {
+            color: var(--muted);
+            text-decoration: none;
+            margin-left: 18px;
+            font-weight: 600;
+            position: relative
+        }
+
+        nav a:hover::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -4px;
+            width: 100%;
+            height: 2px;
+            background: var(--accent1)
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 28px auto;
+            padding: 28px
+        }
+
+        h1 {
+            margin: 0 0 8px 0;
+            font-size: 34px
+        }
+
+        p.lead {
+            color: var(--muted);
+            margin: 0 0 18px
+        }
+
+        .card {
+            background: var(--card);
+            padding: 24px;
+            border-radius: 14px;
+            margin-bottom: 22px;
+            box-shadow: 0 6px 30px rgba(2, 6, 23, 0.6)
+        }
+
+        footer {
+            margin: 28px auto;
+            max-width: 1100px;
+            padding: 18px;
+            color: var(--muted);
+            text-align: center
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div class="brand">
+            <div class="logo" aria-hidden>
+                <div class="logo" aria-hidden>
+                    <img src="logo.png" alt="SkillBridge Chess Logo" style="width:44px;height:44px;border-radius:10px;">
+                </div>
+                <rect width="44" height="44" rx="10" fill="white" fill-opacity="0.06" />
+                <path d="M6 28 C14 12,30 12,38 28" stroke="white" stroke-width="2.3" stroke-linecap="round" fill="none"
+                    opacity="0.95" />
+                <rect x="8" y="28" width="4" height="6" rx="1.2" fill="white" opacity="0.9" />
+                <rect x="32" y="28" width="4" height="6" rx="1.2" fill="white" opacity="0.9" />
+                </svg>
+            </div>
+            <div>
+                <div style="font-weight:800;letter-spacing:0.2px">SkillBridge</div>
+                <div style="font-size:12px;color:var(--muted);margin-top:2px">Connecting skills to opportunity</div>
+            </div>
+        </div>
+        <nav>
+            <a href="index.html">About</a>
+            <a href="chess.html">Chess</a>
+            <a href="mentor.html">Mentored Learning</a>
+            <a href="index.html#contact">Contact</a>
+        </nav>
+    </header>
+
+    <main>
+        <div class="card">
+            <h1>Future Classes</h1>
+            <p class="lead">SkillBridge is expanding beyond chess — more classes are coming soon.</p>
+            <p>Planned subjects include:</p>
+            <ul>
+                <li>💻 Programming & technology</li>
+                <li>📚 Study & learning skills</li>
+                <li>🎨 Creativity and design</li>
+                <li>🌍 Real-world career skills</li>
+            </ul>
+            <p>Stay tuned as we build new bridges to opportunity.</p>
+        </div>
+    </main>
+
+    <footer>
+        <div>© <span id="year"></span> SkillBridge — Built for learners & growth</div>
+        <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
+    </footer>
+</body>
+
+</html>
