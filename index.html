@@ -9,25 +9,33 @@
         content="SkillBridge — connecting learners with practical skills and real-world mentors." />
     <style>
         :root {
+            /* Dark mode (default) */
             --bg: #0f1724;
             --card: #0b1220;
             --muted: #9aa4b2;
             --accent1: #5eead4;
             --accent2: #60a5fa;
-            --glass: rgba(255, 255, 255, 0.04);
+            --text: #e6eef6;
             font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
         }
 
-        * {
-            box-sizing: border-box
+        .light-mode {
+            --bg: #ffffff;
+            --card: #f4f7fb;
+            --muted: #444;
+            --accent1: #0ea5e9;
+            --accent2: #22c55e;
+            --text: #111827;
         }
+
 
         body {
             margin: 0;
             background: linear-gradient(180deg, var(--bg), #061029 120%);
-            color: #e6eef6;
-            -webkit-font-smoothing: antialiased
+            color: var(--text);
+            -webkit-font-smoothing: antialiased;
         }
+
 
         header {
             display: flex;
@@ -260,6 +268,26 @@
             );
         }
     }
+
+    const toggle = document.getElementById('themeToggle');
+    const body = document.body;
+
+    // Load preference
+    if (localStorage.getItem('theme') === 'light') {
+        body.classList.add('light-mode');
+        toggle.textContent = '☀️';
+    }
+
+    toggle.addEventListener('click', () => {
+        body.classList.toggle('light-mode');
+        if (body.classList.contains('light-mode')) {
+            toggle.textContent = '☀️';
+            localStorage.setItem('theme', 'light');
+        } else {
+            toggle.textContent = '🌙';
+            localStorage.setItem('theme', 'dark');
+        }
+    });
 </script>
 
 
@@ -273,6 +301,11 @@
             <div class="logo" aria-hidden>
                 <img src="logo.png" alt="SkillBridge Chess Logo" style="width:44px;height:44px;border-radius:10px;">
             </div>
+            <button id="themeToggle"
+                style="margin-left:20px;padding:6px 12px;border-radius:8px;border:0;cursor:pointer;">
+                🌙
+            </button>
+
             <div>
                 <div style="font-weight:800;letter-spacing:0.2px">SkillBridge</div>
                 <div style="font-size:12px;color:var(--muted);margin-top:2px">Connecting skills to opportunity</div>
@@ -285,6 +318,7 @@
             <a href="#team">Team</a>
             <a href="#contact">Contact</a>
         </nav>
+
     </header>
 
     <main>
