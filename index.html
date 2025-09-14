@@ -177,14 +177,30 @@
             text-align: center
         }
 
-        /* Responsive */
-        @media (max-width:900px) {
-            .hero {
-                grid-template-columns: 1fr
-            }
+        .contact-buttons {
+            grid-column: 1/3;
+            display: flex;
+            gap: 12px;
+            flex-wrap: wrap;
+            margin-top: 6px;
+        }
 
-            nav a {
-                display: none
+        .contact-buttons button {
+            flex: 1;
+            min-width: 120px;
+            padding: 12px;
+            border-radius: 10px;
+            border: 0;
+            font-weight: 800;
+            background: linear-gradient(90deg, var(--accent2), var(--accent1));
+            color: #04263b;
+            cursor: pointer;
+        }
+
+        /* Mobile: stack buttons */
+        @media (max-width: 600px) {
+            .contact-buttons {
+                flex-direction: column;
             }
         }
     </style>
@@ -192,7 +208,7 @@
 
 <script>
     function openWhatsApp() {
-        let whatsappNumber = '491701234567'; // Replace with your full WhatsApp number including country code
+        let whatsappNumber = '4917657661734'; // ✅ Your number with country code
         let name = document.getElementById('name').value.trim();
         let email = document.getElementById('email').value.trim();
         let msg = document.getElementById('message').value.trim();
@@ -209,7 +225,6 @@
             `*Message:*\n${msg}`
         );
 
-        // Open WhatsApp chat in browser/app
         window.open(`https://wa.me/${whatsappNumber}?text=${waText}`, '_blank');
     }
 
@@ -228,13 +243,21 @@
             `Name: ${name}\nEmail: ${email}\nMessage:\n${msg}`
         );
 
-        // Open Gmail compose in new tab
-        window.open(
-            `https://mail.google.com/mail/?view=cm&fs=1&to=maheswariskillbridge@gmail.com&su=${subject}&body=${body}`,
-            '_blank'
-        );
+        // ✅ Detect if on mobile
+        if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+            // Mobile → use mailto (opens Gmail app if installed)
+            window.location.href = `mailto:maheswariskillbridge@gmail.com?subject=${subject}&body=${body}`;
+        } else {
+            // Desktop → force open Gmail web
+            window.open(
+                `https://mail.google.com/mail/?view=cm&fs=1&to=maheswariskillbridge@gmail.com&su=${subject}&body=${body}`,
+                '_blank'
+            );
+        }
     }
 </script>
+
+
 
 
 
@@ -347,18 +370,13 @@
                 <textarea id="message" placeholder="Message" required
                     style="grid-column:1/3;padding:10px;border-radius:8px;border:1px solid rgba(255,255,255,0.04);background:transparent;color:inherit"
                     rows="4"></textarea>
-                <div style="grid-column:1/3;display:flex;gap:12px;flex-wrap:wrap;margin-top:6px">
-                    <button type="button" onclick="openWhatsApp()"
-                        style="flex:1;min-width:120px;padding:12px;border-radius:10px;border:0;font-weight:800;background:linear-gradient(90deg,var(--accent2),var(--accent1));color:#04263b">
-                        Send via WhatsApp
-                    </button>
-                    <button type="button" onclick="openEmail()"
-                        style="flex:1;min-width:120px;padding:12px;border-radius:10px;border:0;font-weight:800;background:linear-gradient(90deg,var(--accent2),var(--accent1));color:#04263b">
-                        Send via Gmail
-                    </button>
+                <div class="contact-buttons">
+                    <button type="button" onclick="openWhatsApp()">Send via WhatsApp</button>
+                    <button type="button" onclick="openEmail()">Send via Gmail</button>
                 </div>
             </form>
         </section>
+
 
 
 
