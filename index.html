@@ -198,9 +198,14 @@
         }
 
         /* Mobile: stack buttons */
-        @media (max-width: 600px) {
-            .contact-buttons {
-                flex-direction: column;
+        @media (max-width: 768px) {
+            .hero {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .hero-card {
+                margin-top: 20px;
             }
         }
     </style>
