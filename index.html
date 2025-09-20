@@ -7,293 +7,37 @@
     <title>SkillBridge — About Us</title>
     <meta name="description"
         content="SkillBridge — connecting learners with practical skills and real-world mentors." />
-    <style>
-        :root {
-            /* Dark mode (default) */
-            --bg: #0f1724;
-            --card: #0b1220;
-            --muted: #9aa4b2;
-            --accent1: #5eead4;
-            --accent2: #60a5fa;
-            --text: #e6eef6;
-            font-family: Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
-        }
+    <link rel="stylesheet" href="style.css">
 
-        .light-mode {
-            --bg: #ffffff;
-            --card: #f4f7fb;
-            --muted: #444;
-            --accent1: #0ea5e9;
-            --accent2: #22c55e;
-            --text: #111827;
-        }
-
-
-        body {
-            margin: 0;
-            background: linear-gradient(180deg, var(--bg), #061029 120%);
-            color: var(--text);
-            -webkit-font-smoothing: antialiased;
-        }
-
-
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 20px 28px;
-            backdrop-filter: blur(6px)
-        }
-
-        .brand {
-            display: flex;
-            gap: 14px;
-            align-items: center
-        }
-
-        .logo {
-            width: 56px;
-            height: 56px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            border-radius: 12px;
-            background: linear-gradient(135deg, var(--accent2), var(--accent1));
-            box-shadow: 0 6px 20px rgba(96, 165, 250, 0.08)
-        }
-
-        nav a {
-            color: var(--muted);
-            text-decoration: none;
-            margin-left: 18px;
-            font-weight: 600;
-            position: relative
-        }
-
-        nav a:hover::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -4px;
-            width: 100%;
-            height: 2px;
-            background: var(--accent1);
-        }
-
-        main {
-            max-width: 1100px;
-            margin: 28px auto;
-            padding: 28px
-        }
-
-        .hero {
-            display: grid;
-            grid-template-columns: 1fr 420px;
-            gap: 28px;
-            align-items: center
-        }
-
-        .hero-card {
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
-            padding: 28px;
-            border-radius: 16px;
-            box-shadow: 0 6px 30px rgba(2, 6, 23, 0.6)
-        }
-
-        h1 {
-            margin: 0 0 8px 0;
-            font-size: 34px
-        }
-
-        p.lead {
-            color: var(--muted);
-            margin: 0 0 18px
-        }
-
-        .features {
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap
-        }
-
-        .feature {
-            background: var(--glass);
-            padding: 12px 14px;
-            border-radius: 10px;
-            color: var(--muted);
-            font-weight: 600;
-            cursor: pointer;
-            transition: all .2s ease
-        }
-
-        .feature:hover {
-            background: linear-gradient(90deg, var(--accent2), var(--accent1));
-            color: #04263b
-        }
-
-        .about,
-        .values,
-        .team {
-            margin-top: 22px;
-            background: var(--card);
-            padding: 22px;
-            border-radius: 12px
-        }
-
-        .values-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 12px
-        }
-
-        .value {
-            padding: 14px;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.015), rgba(255, 255, 255, 0.01));
-            border-radius: 10px
-        }
-
-        .team-cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-            gap: 12px
-        }
-
-        .member {
-            padding: 14px;
-            border-radius: 10px;
-            background: linear-gradient(180deg, rgba(255, 255, 255, 0.012), rgba(255, 255, 255, 0.008));
-            text-align: center
-        }
-
-        .avatar {
-            width: 64px;
-            height: 64px;
-            border-radius: 12px;
-            margin: 0 auto 10px;
-            background: linear-gradient(135deg, var(--accent1), var(--accent2));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: 700
-        }
-
-        footer {
-            margin: 28px auto;
-            max-width: 1100px;
-            padding: 18px;
-            color: var(--muted);
-            text-align: center
-        }
-
-        .contact-buttons {
-            grid-column: 1/3;
-            display: flex;
-            gap: 12px;
-            flex-wrap: wrap;
-            margin-top: 6px;
-        }
-
-        .contact-buttons button {
-            flex: 1;
-            min-width: 120px;
-            padding: 12px;
-            border-radius: 10px;
-            border: 0;
-            font-weight: 800;
-            background: linear-gradient(90deg, var(--accent2), var(--accent1));
-            color: #04263b;
-            cursor: pointer;
-        }
-
-        /* Mobile: stack buttons */
-        @media (max-width: 768px) {
-            .hero {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .hero-card {
-                margin-top: 20px;
-            }
-        }
-    </style>
 </head>
 
 <script>
-    function openWhatsApp() {
-        let whatsappNumber = '4917657661734'; // ✅ Your number with country code
-        let name = document.getElementById('name').value.trim();
-        let email = document.getElementById('email').value.trim();
-        let msg = document.getElementById('message').value.trim();
-
-        if (!name || !email || !msg) {
-            alert('Please fill all fields first.');
-            return;
-        }
-
-        let waText = encodeURIComponent(
-            `*New Contact from SkillBridge Website*\n\n` +
-            `*Name:* ${name}\n` +
-            `*Email:* ${email}\n` +
-            `*Message:*\n${msg}`
-        );
-
+    // WhatsApp contact
+    window.openWhatsApp = function () {
+        const whatsappNumber = '4917657661734';
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const msg = document.getElementById('message').value.trim();
+        if (!name || !email || !msg) { alert('Please fill all fields first.'); return; }
+        const waText = encodeURIComponent(`*New Contact from SkillBridge Website*\n\n*Name:* ${name}\n*Email:* ${email}\n*Message:*\n${msg}`);
         window.open(`https://wa.me/${whatsappNumber}?text=${waText}`, '_blank');
     }
 
-    function openEmail() {
-        let name = document.getElementById('name').value.trim();
-        let email = document.getElementById('email').value.trim();
-        let msg = document.getElementById('message').value.trim();
-
-        if (!name || !email || !msg) {
-            alert('Please fill all fields first.');
-            return;
-        }
-
-        let subject = encodeURIComponent('SkillBridge Contact Form');
-        let body = encodeURIComponent(
-            `Name: ${name}\nEmail: ${email}\nMessage:\n${msg}`
-        );
-
-        // ✅ Detect if on mobile
+    // Email contact
+    window.openEmail = function () {
+        const name = document.getElementById('name').value.trim();
+        const email = document.getElementById('email').value.trim();
+        const msg = document.getElementById('message').value.trim();
+        if (!name || !email || !msg) { alert('Please fill all fields first.'); return; }
+        const subject = encodeURIComponent('SkillBridge Contact Form');
+        const bodyText = encodeURIComponent(`Name: ${name}\nEmail: ${email}\nMessage:\n${msg}`);
         if (/Android|iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-            // Mobile → use mailto (opens Gmail app if installed)
-            window.location.href = `mailto:maheswariskillbridge@gmail.com?subject=${subject}&body=${body}`;
+            window.location.href = `mailto:maheswariskillbridge@gmail.com?subject=${subject}&body=${bodyText}`;
         } else {
-            // Desktop → force open Gmail web
-            window.open(
-                `https://mail.google.com/mail/?view=cm&fs=1&to=maheswariskillbridge@gmail.com&su=${subject}&body=${body}`,
-                '_blank'
-            );
+            window.open(`https://mail.google.com/mail/?view=cm&fs=1&to=maheswariskillbridge@gmail.com&su=${subject}&body=${bodyText}`, '_blank');
         }
     }
-
-    const toggle = document.getElementById('themeToggle');
-    const body = document.body;
-
-    // Load preference
-    if (localStorage.getItem('theme') === 'light') {
-        body.classList.add('light-mode');
-        toggle.textContent = '☀️';
-    }
-
-    toggle.addEventListener('click', () => {
-        body.classList.toggle('light-mode');
-        if (body.classList.contains('light-mode')) {
-            toggle.textContent = '☀️';
-            localStorage.setItem('theme', 'light');
-        } else {
-            toggle.textContent = '🌙';
-            localStorage.setItem('theme', 'dark');
-        }
-    });
 </script>
-
-
-
-
-
 
 <body>
     <header>
@@ -301,15 +45,14 @@
             <div class="logo" aria-hidden>
                 <img src="logo.png" alt="SkillBridge Chess Logo" style="width:44px;height:44px;border-radius:10px;">
             </div>
-            <button id="themeToggle"
-                style="margin-left:20px;padding:6px 12px;border-radius:8px;border:0;cursor:pointer;">
-                🌙
-            </button>
-
             <div>
                 <div style="font-weight:800;letter-spacing:0.2px">SkillBridge</div>
                 <div style="font-size:12px;color:var(--muted);margin-top:2px">Connecting skills to opportunity</div>
             </div>
+            <button id="themeToggle"
+                style="margin-left:20px;padding:6px 12px;border-radius:8px;border:0;cursor:pointer;">
+                🌙
+            </button>
         </div>
         <nav>
             <a href="#about">About</a>
@@ -349,7 +92,7 @@
         </section>
 
         <section id="about" class="about">
-            <h2 style="margin-top:0">About Us</h2>
+            <h2>About Us</h2>
             <p style="color:var(--muted);margin-top:8px">SkillBridge was founded to shrink the gap between learning and
                 real-world practice. We start with <strong>Chess</strong> — available in group and single sessions — and
                 will soon add more classes. Our approach is practical, outcome-driven, and guided by mentors.</p>
@@ -367,19 +110,19 @@
         <section id="values" class="values">
             <h2 style="margin-top:0">Our Values</h2>
             <div class="values-grid">
-                <div class="value">
+                <div class="value value-1">
                     <strong>Practicality</strong>
                     <div style="color:var(--muted);margin-top:6px">We teach by doing — hands-on lessons.</div>
                 </div>
-                <div class="value">
+                <div class="value value-2">
                     <strong>Mentorship</strong>
                     <div style="color:var(--muted);margin-top:6px">Guides help learners improve step by step.</div>
                 </div>
-                <div class="value">
+                <div class="value value-1">
                     <strong>Transparency</strong>
                     <div style="color:var(--muted);margin-top:6px">Clear expectations and outcomes.</div>
                 </div>
-                <div class="value">
+                <div class="value value-2">
                     <strong>Growth</strong>
                     <div style="color:var(--muted);margin-top:6px">Starting with chess, expanding to more skills.</div>
                 </div>
@@ -389,15 +132,17 @@
         <section id="team" class="team">
             <h2 style="margin-top:0">Owner</h2>
             <div class="team-cards">
-                <div class="member">
-                    <div class="avatar">MR</div>
-                    <div style="font-weight:700">Maheswari Rajendran</div>
-                    <div style="color:var(--muted);font-size:13px">Founder & Owner</div>
-                    <div style="color:var(--muted);font-size:13px">Email: maheswariskillbridge@gmail.com</div>
-                    <div style="color:var(--muted);font-size:13px">Phone: coming soon</div>
+                <div class="value value-1">
+                    <div class="hover-block">
+                        <div class="avatar">MR</div>
+                        <div style="font-weight:700">Maheswari Rajendran</div>
+                        <div style="color:var(--muted);font-size:13px">Founder & Owner</div>
+                        <div style="color:var(--muted);font-size:13px">Email: maheswariskillbridge@gmail.com</div>
+                        <div style="color:var(--muted);font-size:13px">Phone: coming soon</div>
+                    </div>
                 </div>
-            </div>
         </section>
+
         <section id="contact" class="team" style="margin-top:18px">
             <h2 style="margin-top:0">Contact</h2>
             <p style="color:var(--muted)">Have a question or want to join? Drop us a note.</p>
@@ -415,11 +160,6 @@
                 </div>
             </form>
         </section>
-
-
-
-
-
     </main>
 
     <footer>
@@ -427,5 +167,7 @@
         <script>document.getElementById('year').textContent = new Date().getFullYear();</script>
     </footer>
 </body>
+<script src="main.js"></script>
+
 
 </html>
